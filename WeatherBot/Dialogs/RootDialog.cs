@@ -118,7 +118,7 @@ namespace WeatherBot.Dialogs
         private async Task<string> GetLocationAsync(string place)
         {
             var client = new HttpClient();
-            var locationResult = await client.GetStringAsync("");
+            var locationResult = await client.GetStringAsync("https://raw.githubusercontent.com/a-n-n-i-e/CognitiveLUIS-AdaptiveCards-WeatherBot/master/WeatherBot/locationIdList.json");
             var locationStr = Uri.UnescapeDataString(locationResult.ToString());
             var locationModel = JsonConvert.DeserializeObject<LocationModel>(locationStr);
 
