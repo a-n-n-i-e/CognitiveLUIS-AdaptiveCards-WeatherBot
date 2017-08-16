@@ -1,0 +1,125 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "WeatherBot",
+  "desc": "",
+  "culture": "ja-jp",
+  "intents": [
+    {
+      "name": "GetWeather"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Day",
+      "children": [
+        "Today",
+        "DayAfterTomorrow",
+        "Tomorrow"
+      ]
+    },
+    {
+      "name": "Place"
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [],
+  "actions": [],
+  "model_features": [
+    {
+      "name": "dayaftertomorrow",
+      "mode": true,
+      "words": "明後日,あさって",
+      "activated": true
+    },
+    {
+      "name": "today",
+      "mode": true,
+      "words": "今日,本日,今,きょう,いま",
+      "activated": true
+    },
+    {
+      "name": "tomorrow",
+      "mode": true,
+      "words": "明日,あした,あす",
+      "activated": true
+    }
+  ],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "明日の大阪の天気を知りたい",
+      "intent": "GetWeather",
+      "entities": [
+        {
+          "entity": "Place",
+          "startPos": 3,
+          "endPos": 4
+        },
+        {
+          "entity": "Day::Tomorrow",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "大阪の天気は",
+      "intent": "GetWeather",
+      "entities": [
+        {
+          "entity": "Place",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "今日の横浜の天気を教えて",
+      "intent": "GetWeather",
+      "entities": [
+        {
+          "entity": "Place",
+          "startPos": 3,
+          "endPos": 4
+        },
+        {
+          "entity": "Day::Today",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "明後日の福岡は？",
+      "intent": "GetWeather",
+      "entities": [
+        {
+          "entity": "Place",
+          "startPos": 4,
+          "endPos": 5
+        },
+        {
+          "entity": "Day::DayAfterTomorrow",
+          "startPos": 0,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "横浜の天気を教えて",
+      "intent": "GetWeather",
+      "entities": [
+        {
+          "entity": "Place",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    }
+  ]
+}
